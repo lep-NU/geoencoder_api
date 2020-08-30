@@ -33,8 +33,9 @@ router.get('/search', function(req, res) {
     }
   })
   .then(function (response) {
-    console.log(response.data.results[0].geometry.location);
-    res.json({success: true});
+    const location = response.data.results[0].geometry.location;
+    console.log(location);
+    res.json({success: true, location: location});
   })
   .catch(function (err) {
     console.log(err);
